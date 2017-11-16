@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Crear Tarea</title>
+	<style type="text/css">
+		.txt {
+			margin: 5px;
+			display: block;
+			font-weight: bold;
+			font-size: 25px;
+		}
+
+		.txt input{
+			height: 30px;
+			width: 300px;
+		}
+
+		.btn_submit{
+			height: 30px;
+			width: 200px;
+			color: blue;
+			margin-left: 100px;
+		}
+
+	</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+</head>
+<body>
+	<div style="padding: 50px;">
+		<form id="form" name="form" method="post" action="https://lit-anchorage-86748.herokuapp.com/set_task">
+			<div class="txt">
+				<label>Descripción: </label>
+				<input type="text" name="description">
+			</div>
+			<div class="txt">
+				<label>Magnet Link: </label>
+				<input type="text" name="magnet">
+			</div>
+
+			<div class="txt">
+				<input type="hidden" name="date">
+			</div>
+			<div class="txt">
+				<input type="hidden" name="state">
+			</div>
+			<div class="txt">
+				<input type="hidden" name="progress">
+			</div>
+			<div class="button">
+		        <button class="btn_submit" type="submit">Enviar</button>
+		    </div>
+		</form>
+	</div>
+	<script type="text/javascript">
+		//Se toman los valores de todos los inputs del formulario
+		var date = new Date();			
+		var date_temp = date.getFullYear()+"-"+date.getMonth()+"-"+date.getDate()+" "+date.getHours()+":"+date.getMinutes()+":"+date.getSeconds();
+		var formulario = document.getElementById("form");
+		formulario.getElementsByClassName("txt")[2].getElementsByTagName("input")[0].value = date_temp;
+		formulario.getElementsByClassName("txt")[3].getElementsByTagName("input")[0].value = "no-enviado";
+		formulario.getElementsByClassName("txt")[4].getElementsByTagName("input")[0].value = "0";
+	</script>
+</body>
+</html>

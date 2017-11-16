@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Cpu State</title>
+	<style type="text/css">
+		table, th, td {
+   						border: 1px solid black;
+   						border-collapse: collapse;
+					  }
+		td{
+			text-align: center;
+			padding: 2px;
+		}
+	</style>
+</head>
+<body>
+	<div style="padding: 20px;">
+		<h1>Estado de la cpu</h1>
+		<table>
+		  <tr>
+		  	<th>id</th>
+		    <th>user</th>
+		    <th>system</th> 
+		    <th>idle-link</th>
+		    <th>waiting</th>
+		    <th>vms</th>
+		    <th>fecha</th>
+		  </tr>
+		  {% for row in registers %}
+		  <tr>
+		    <td>{{row[0]}}</td>
+		    <td>{{row[1]}}</td> 
+		    <td>{{row[2]}}</td>
+		    <td>{{row[3]}}</td>
+		    <td>{{row[4]}}</td>
+		    <td>{{row[5]}}</td>
+		    <td>{{row[6]}}</td>
+		  </tr>
+		  {% endfor %}
+		</table>
+	</div>
+	<div style="padding: 20px;">
+		<h1>Estado de la memoria</h1>
+		<table>
+		  <tr>
+		  	<th>id</th>
+		    <th>swpd</th>
+		    <th>free</th> 
+		    <th>buff</th>
+		    <th>cache</th>
+		    <th>fecha</th>
+		  </tr>
+		  {% for row in registers1 %}
+		  <tr>
+		    <td>{{row[0]}}</td>
+		    <td>{{row[1]}}</td> 
+		    <td>{{row[2]}}</td>
+		    <td>{{row[3]}}</td>
+		    <td>{{row[4]}}</td>
+		    <td>{{row[5]}}</td>
+		  </tr>
+		  {% endfor %}
+		</table>
+	</div>
+	<div style="padding: 20px;">
+		<h1>Estado del disco duro</h1>
+		<table>
+		  <tr>
+		  	<th>id</th>
+		    <th>hdfree</th>
+		    <th>fecha</th>
+		  </tr>
+		  {% for row in registers2 %}
+		  <tr>
+		    <td>{{row[0]}}</td>
+		    <td>{{row[1]}} %</td>
+		    <td>{{row[2]}}</td>
+		  </tr>
+		  {% endfor %}
+		</table>
+	</div>
+</body>
+</html>
